@@ -39,6 +39,10 @@ if(!empty($arguments['fm']) OR (empty($arguments['fm']) && $format == 'markdown_
     $add_meta = false;
 }
 
+if(!empty($arguments['verbose']) {
+   $verbose = true;
+   }
+   
 
 
 
@@ -115,6 +119,11 @@ while(list( , $node) = array(key($result), current($result))) {
     fwrite($file, $text);
     fclose($file);
 
+    //Print the entry title, so you can see each one as it is exported, if verbose is turned on.
+    if ($verbose) {
+        echo $title, " created.\n";
+    }
+    
     $count++;
     next($result);
 }
